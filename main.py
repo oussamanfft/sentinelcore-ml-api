@@ -46,6 +46,7 @@ class PredictionOutput(BaseModel):
 # /health - endpoint LEGER pour UptimeRobot (pas de calcul ML)
 # ============================================================
 @app.get("/health")
+@app.head("/health")
 def health():
     return {"status": "ok"}
 
@@ -68,5 +69,6 @@ def predict(flow: FlowInput):
 
 
 @app.get("/")
+@app.head("/")
 def root():
     return {"service": "SentinelCore ML API", "status": "running"}
